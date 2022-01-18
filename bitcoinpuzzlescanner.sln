@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.810.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitcoinpuzzlescanner", "bitcoinpuzzlescanner\bitcoinpuzzlescanner.csproj", "{70A058A5-D30E-4029-9D1A-7372C0FA90AA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0CF75B75-F3B2-4648-A254-2B69BAF2EF40}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		README_tr.md = README_tr.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

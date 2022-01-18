@@ -1,0 +1,1 @@
+﻿If the destination address is found, it will be saved as a new text file in this folder.

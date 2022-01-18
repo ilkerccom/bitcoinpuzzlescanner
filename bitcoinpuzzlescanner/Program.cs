@@ -9,7 +9,7 @@ namespace bitcoinpuzzlescanner
     class Program
     {
         /// <summary>
-        /// Target address is found
+        /// Target address is found.
         /// </summary>
         private static bool Found = false;
 
