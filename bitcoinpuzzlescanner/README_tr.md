@@ -72,5 +72,5 @@ https://dotnet.microsoft.com/en-us/download/dotnet/3.1
 ## Disclaimer
 ALL THE CODES, PROGRAM AND INFORMATION ARE FOR EDUCATIONAL PURPOSES ONLY. USE IT AT YOUR OWN RISK. THE DEVELOPER WILL NOT BE RESPONSIBLE FOR ANY LOSS, DAMAGE OR CLAIM ARISING FROM USING THIS PROGRAM.
 
-**Yararlanılan kaynaklar;**
+**Yararlanılan kütüphaneler;**
 https://github.com/MetacoSA/NBitcoin
