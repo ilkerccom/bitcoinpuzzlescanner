@@ -45,8 +45,8 @@
     /// </summary>
     public enum ScanType
     {
-        Next, /* Start > end */
-        Prev, /* End > start */
-        Random /* Random */
+        SB, /* Start > end */
+        SE, /* End > start */
+        R /* Random */
     }
 }
