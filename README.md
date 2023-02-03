@@ -1,4 +1,7 @@
 ﻿# Bitcoin-Puzzle-Scanner
+ 
+I had a few people want me to update this program to include new challenges. (The original only had challenge #64.)
+I have updated it up to challenge #108. I will add the others as time permits.
 
 ![bitcoin-puzzle-scanner](https://i.ibb.co/v4QmWtL/Ekran-Resmi-2022-01-18-20-15-58.png)
 
@@ -6,9 +9,9 @@
 
 You can use the following scan types.
 
-- **next** : It scans sequentially from the first HEX value to the last HEX value.
-- **prev** : It scans in reverse order from the last HEX value to the first HEX value.
-- **random** : It scans by generating completely random HEX values. The generated HEX values are derived from the HEX ranges of the entered Puzzle.
+- **SB** : It scans sequentially from the beginning HEX value to the last HEX value; first to last.
+- **SE** : It scans in reverse order from the end HEX value to the beginning HEX value; last to first.
+- **R** : It scans by generating completely random HEX values. The generated HEX values are derived from the HEX ranges of the entered Puzzle.
 
 
 > On a Macbook Pro 2019, Core i9 2.3Ghz computer, approximately 20,000 addresses are scanned per second with 4 threads. 

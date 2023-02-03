@@ -62,27 +62,27 @@ namespace bitcoinpuzzlescanner
             // User select puzzle number
             while (!PuzzleList.GetPuzzles().Any(e => e.Number == Puzzle))
             {
-                Helpers.WriteInfo("Select puzzle number [" + String.Join('/', PuzzleList.GetPuzzles().Select(e => e.Number).ToArray()) + "] :");
+                Helpers.WriteInfo("Select challenge number [" + String.Join('/', PuzzleList.GetPuzzles().Select(e => e.Number).ToArray()) + "] :");
                 Puzzle = Console.ReadLine();
             }
 
             // User enter scan type
             while (!Enum.GetValues(typeof(models.ScanType)).Cast<models.ScanType>().Any(e => e.ToString().ToLower() == ScanType.ToLower()))
             {
-                Helpers.WriteInfo("Select scan type [" + String.Join('/', Enum.GetValues(typeof(models.ScanType)).Cast<models.ScanType>()) + "] :");
+                Helpers.WriteInfo("Select scan type ([SB=Sequential from Beginning], [SE=Sequential from End], [R=Random]) [" + String.Join('/', Enum.GetValues(typeof(models.ScanType)).Cast<models.ScanType>()) + "] :");
                 ScanType = Console.ReadLine().ToLower();
             }
 
             // User enter thread(s) count
             while (Thread <= 0)
             {
-                Helpers.WriteInfo("Enter thread(s) count [1-24] :");
+                Helpers.WriteInfo("Enter # of CPU thread(s) to use [1-24] :");
                 int.TryParse(Console.ReadLine().ToString(), out Thread);
             }
 
             // Define selected puzzle
             ActivePuzzle = PuzzleList.GetPuzzles().Where(e => e.Number == Puzzle).First();
-
+            
             // Set puzzle info
             PuzzleInfo = new models.PuzzleInfo
             {
@@ -123,18 +123,18 @@ namespace bitcoinpuzzlescanner
 
 
             // Scan type
-            if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.Random)
+            if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.R)
             {
                 // Random generate
                 KeyList = Helpers.RandomHexList(ActivePuzzle.HexStart, ActivePuzzle.HexStop, ParallelScan);
             }
-            else if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.Next)
+            else if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.SB)
             {
                 // From first hex to last hex
                 BigInteger NextToScan = Attempts == 1 ? Helpers.HexToBigInteger(ActivePuzzle.HexStart) : Helpers.HexToBigInteger(ActivePuzzle.HexStart) + (Attempts * ParallelScan);
                 KeyList = Helpers.RandomHexList(NextToScan, ActivePuzzle.HexStop, ParallelScan);
             }
-            else if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.Prev)
+            else if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.SE)
             {
                 // From last hex to first hex
                 BigInteger PrevToScan = Attempts == 1 ? Helpers.HexToBigInteger(ActivePuzzle.HexStop) : Helpers.HexToBigInteger(ActivePuzzle.HexStop) - (Attempts * ParallelScan);
@@ -159,6 +159,7 @@ namespace bitcoinpuzzlescanner
                     Console.Clear();
                     double CompletedPercentage = (double)((Attempts * ParallelScan) * 100) / (double)PuzzleInfo.MaxKeys;
                     double LuckyPercentage = (double)(1 * 100) / (double)PuzzleInfo.MaxKeys;
+                    //double LuckyPercentage = (double)(Attempts) / (double)PuzzleInfo.MaxKeys;
 
                     // Time info
                     DateTime Current = DateTime.Now;
@@ -170,7 +171,8 @@ namespace bitcoinpuzzlescanner
 
                     // Write info
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine(String.Format("Running Bitcoin Puzzle #{0}# for {1} days, {2} hours, {3} minutes, {4} seconds ({5} k/seconds)", ActivePuzzle.Number, Days, Hours, Minutes, Seconds, PerSeconds));
+                    Console.WriteLine(String.Format("Running Bitcoin Challenge #{0}# for {1} days, {2} hours, {3} minutes, {4} seconds ({5} Keys/second)", ActivePuzzle.Number, Days, Hours, Minutes, Seconds, PerSeconds));
+                    //Console.WriteLine(String.Format("# of CPU threads running ({0})", Thread));
                     Console.WriteLine(String.Format("Target address ({0}) Last address ({1})", ActivePuzzle.Address, KeyList.Last().Address));
                     Console.WriteLine("====================================================================================");
                     Console.WriteLine(String.Format("Lucky ratio  => %{0}", LuckyPercentage.ToString("0.0000000000000000000000000000000000000000000000000000000000000000000")));
