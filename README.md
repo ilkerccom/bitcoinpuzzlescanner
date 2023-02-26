@@ -1,7 +1,4 @@
 ﻿# Bitcoin-Puzzle-Scanner
- 
-I had a few people want me to update this program to include new challenges. (The original only had challenge #64.)
-I have updated it up to challenge #108. I will add the others as time permits.
 
 ![bitcoin-puzzle-scanner](https://i.ibb.co/v4QmWtL/Ekran-Resmi-2022-01-18-20-15-58.png)
 
