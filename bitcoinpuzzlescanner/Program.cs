@@ -111,8 +111,6 @@ namespace bitcoinpuzzlescanner
             }
         }
 
-        private static List<models.Key> KeyList = new List<models.Key>();
-
         /// <summary>
         /// Scan private keys
         /// </summary>
@@ -120,7 +118,7 @@ namespace bitcoinpuzzlescanner
         static void Scan(int Thread)
         {
             // Generate random keys
-
+            List<models.Key> KeyList = new List<models.Key>();
 
             // Scan type
             if (Helpers.ParseEnum<models.ScanType>(ScanType) == models.ScanType.R)
@@ -157,9 +155,9 @@ namespace bitcoinpuzzlescanner
                 {
                     // Percentage info
                     Console.Clear();
-                    double CompletedPercentage = (double)((Attempts * ParallelScan) * 100) / (double)PuzzleInfo.MaxKeys;
+                    double ScannedKeys = (double)(Attempts * ParallelScan);
+                    double CompletedPercentage = (((double)ScannedKeys * 100) / (double)PuzzleInfo.MaxKeys);
                     double LuckyPercentage = (double)(1 * 100) / (double)PuzzleInfo.MaxKeys;
-                    //double LuckyPercentage = (double)(Attempts) / (double)PuzzleInfo.MaxKeys;
 
                     // Time info
                     DateTime Current = DateTime.Now;
