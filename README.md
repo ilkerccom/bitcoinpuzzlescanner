@@ -65,6 +65,15 @@ Platform independent, you can use it on any operating system. **.NET Runtime 3.1
 You can download it from the link below;
 https://dotnet.microsoft.com/en-us/download/dotnet/3.1
 
+## Usage
+`Select a puzzle` = write **66** (or any puzzle number) and ENTER
+
+`Select a scan type` = write **R** or **SB** or **SE** and ENTER
+
+`Enter CPU threads` = write **8** (or 1-32) and ENTER
+
+## Donate
+
 **If you like it, you can donate (Bitcoin BTC)**
 
     1eosEvvesKV6C2ka4RDNZhmepm1TLFBtw
