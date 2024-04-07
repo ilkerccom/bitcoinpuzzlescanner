@@ -1,4 +1,12 @@
-﻿# Bitcoin-Puzzle-Scanner
+# Last update
+
+Visit the shared link for the GPU-supported solo pool project “bitcrackrandomiser”. Available for puzzle 66,67 & 68.
+
+[Go to bitcrackrandomiser](https://github.com/ilkerccom/bitcrackrandomiser)
+
+[Go to btcpuzzle.info](https://btcpuzzle.info)
+ 
+# Bitcoin-Puzzle-Scanner
 
 ![bitcoin-puzzle-scanner](https://i.ibb.co/v4QmWtL/Ekran-Resmi-2022-01-18-20-15-58.png)
 
